@@ -33,6 +33,12 @@ int main() {
     cout << "Enter m and n: ";
     cin >> m >> n;
 
+    // Plain recursion overflows quickly for Ackermann; keep inputs in a safe range.
+    if (m > 3 || (m == 3 && n > 10)) {
+        cout << "Input too large for recursive demo (safe range: m < 3, or m = 3 with n <= 10)." << endl;
+        return 1;
+    }
+
     cout << "Ackermann(" << m << ", " << n << ") = " 
          << ackermann(m, n) << endl;
 
